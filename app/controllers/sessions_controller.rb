@@ -1,4 +1,4 @@
-class SessionsController
+class SessionsController < ApplicationController
 
 
   def new
@@ -14,6 +14,12 @@ class SessionsController
     else
       flash[:notice] = "Invalid Login"
     end
+  end
+
+  def destroy
+    session[:user_id] = nil
+    flash[:notice] = "Goodbye"
+    redirect_to root_path
   end
 
 end
