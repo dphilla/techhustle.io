@@ -11,8 +11,8 @@ RSpec.describe "User can create a new account" do
 
     user = User.last
 
-    expect(page).to have_content("Welcome to Net.work, #{user.username}. Let's grow
-                                  your connections")
-    expect(current_path).to eq(user_show_path)
+    expect(page).to have_content("Hey, #{user.username}, let's grow
+                                  your network, eh?")
+    expect(current_path).to eq(user_path(user))
   end
 end
