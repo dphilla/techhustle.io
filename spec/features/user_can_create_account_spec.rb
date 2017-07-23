@@ -1,10 +1,10 @@
 require 'rails_helper'
 
 RSpec.describe "User can create a new account" do
-  context "with valid attributes" do
+  it "visit new_user_path" do
     user_attributes = {username: "Daniel", password: "password"}
 
-    visit user_new_path
+    visit new_user_path
     fill_in "user[username]", with: user_attributes[:username]
     fill_in "user[password]", with: user_attributes[:password]
     click_on "Create Profile"

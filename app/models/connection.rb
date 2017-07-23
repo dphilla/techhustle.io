@@ -3,5 +3,5 @@ class Connection < ApplicationRecord
   belongs_to :notes
   belongs_to :relationships
   has_many :user_connections
-  has many :user, through: :user_connections
+  has_many :user, through: :user_connections
 end
