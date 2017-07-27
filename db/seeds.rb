@@ -7,4 +7,5 @@
 #   Character.create(name: 'Luke', movie: movies.first)
 
 
-#schema http://ondras.zarovi.cz/sql/demo/?keyword=dphilla_net_work
+  #schema http://ondras.zarovi.cz/sql/demo/?keyword=dphilla_net_work
+  
