@@ -1,3 +1,3 @@
 class ContactPoint < ApplicationRecord
-  has_many :connections
+  belongs_to :connection
 end

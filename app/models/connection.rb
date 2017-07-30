@@ -1,7 +1,6 @@
 class Connection < ApplicationRecord
-  belongs_to :contact_points
-  belongs_to :notes
-  belongs_to :relationships
+  has_many :contact_points
+  has_many :notes
   has_many :user_connections
   has_many :user, through: :user_connections
 end

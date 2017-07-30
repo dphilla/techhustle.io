@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20170723221000) do
+ActiveRecord::Schema.define(version: 20170730162859) do
 
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
@@ -21,10 +21,7 @@ ActiveRecord::Schema.define(version: 20170723221000) do
     t.text "organization"
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
-    t.bigint "contact_point_id"
-    t.bigint "note_id"
-    t.index ["contact_point_id"], name: "index_connections_on_contact_point_id"
-    t.index ["note_id"], name: "index_connections_on_note_id"
+    t.string "relationship"
   end
 
   create_table "contact_points", force: :cascade do |t|
@@ -34,6 +31,8 @@ ActiveRecord::Schema.define(version: 20170723221000) do
     t.text "description"
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
+    t.bigint "connection_id"
+    t.index ["connection_id"], name: "index_contact_points_on_connection_id"
   end
 
   create_table "notes", force: :cascade do |t|
@@ -41,14 +40,8 @@ ActiveRecord::Schema.define(version: 20170723221000) do
     t.datetime "date"
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
-  end
-
-  create_table "relationships", force: :cascade do |t|
-    t.string "status"
-    t.datetime "created_at", null: false
-    t.datetime "updated_at", null: false
     t.bigint "connection_id"
-    t.index ["connection_id"], name: "index_relationships_on_connection_id"
+    t.index ["connection_id"], name: "index_notes_on_connection_id"
   end
 
   create_table "user_connections", force: :cascade do |t|
@@ -68,9 +61,8 @@ ActiveRecord::Schema.define(version: 20170723221000) do
     t.integer "role", default: 0
   end
 
-  add_foreign_key "connections", "contact_points"
-  add_foreign_key "connections", "notes"
-  add_foreign_key "relationships", "connections"
+  add_foreign_key "contact_points", "connections"
+  add_foreign_key "notes", "connections"
   add_foreign_key "user_connections", "connections"
   add_foreign_key "user_connections", "users"
 end
