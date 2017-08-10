@@ -6,7 +6,7 @@ class ConnectionsController < ApplicationController
 
   def create
     @connection = Connection.new(connection_params)
-    if @connection.save!
+    if @connection.save! && current_user
       redirect_to @connection
     else
      flash[:warning] = "You gotta sign in to grow your network!"
@@ -19,7 +19,7 @@ class ConnectionsController < ApplicationController
   end
 
   def index
-
+    @connections = Connection.all
   end
 
 
