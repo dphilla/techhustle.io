@@ -2,5 +2,5 @@
 <%= @connections.each do |connection| %>
   <%= connection.name %>
   <%= connection.organization %>
-  <%= connection.contact_points.date.last %>
+  <%= connection.contact_points.all %>
 <% end  %>

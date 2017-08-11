@@ -31,9 +31,9 @@ RSpec.describe "user" do
 
 
     expect(current_path).to eq(connections_path)
-    expect(page).to have_content("#{connection1.name}")
     expect(page).to have_content("#{connection2.name}")
-    expect(page).to have_content("#{connection1.contact_points.date}")
+    expect(page).to have_content("#{connection2.name}")
+    expect(page).to have_content("#{connection1.contact_points.first}")
 
   end
 end

@@ -29,7 +29,6 @@ RSpec.describe "user" do
     fill_in "Relationship", with: "acquantance"
     click_on "Create New Connection"
 
-
     expect(current_path).to eq(connection_path(Connection.last.id))
     expect(page).to have_content("#{connection.name}")
 
