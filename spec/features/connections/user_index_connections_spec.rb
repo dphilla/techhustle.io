@@ -22,8 +22,15 @@ RSpec.describe "user" do
                         initial_meet: "10/12/14",
                         organization: "Navy",
                         relationship: "Acquantance")
-    connection1.contact_points.new()
 
+
+    connection1.contact_points.create(date: "10/10/10", event: "code demo",
+                                     location: "turing",
+                                     description: "just some bs")
+
+    connection2.contact_points.create(date: "10/10/10", event: "code demo",
+                                     location: "turing",
+                                     description: "just some bs")
 
     visit connections_path
 
@@ -33,7 +40,5 @@ RSpec.describe "user" do
     expect(current_path).to eq(connections_path)
     expect(page).to have_content("#{connection2.name}")
     expect(page).to have_content("#{connection2.name}")
-    expect(page).to have_content("#{connection1.contact_points.first}")
-
   end
 end

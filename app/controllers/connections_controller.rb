@@ -22,6 +22,13 @@ class ConnectionsController < ApplicationController
     @connections = Connection.all
   end
 
+  def destroy
+     connection = Connection.find(params[:id])
+     connection.contact_points.destroy_all
+     connection.destroy
+     flash[:message] = "Connection Deleted!"
+     redirect_to connections_path
+  end
 
 private
 

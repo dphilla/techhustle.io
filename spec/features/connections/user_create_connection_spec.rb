@@ -17,10 +17,11 @@ RSpec.describe "user" do
                                    initial_meet: "10/12/12",
                                    organization: "navy")
 
-
+    connection.contact_points.create(date: "10/10/10", event: "code demo",
+                                     location: "turing",
+                                     description: "just some bs")
 
     visit new_connection_path
-
     current_user = user
 
     fill_in "Name", with: connection.name
@@ -34,3 +35,4 @@ RSpec.describe "user" do
 
   end
 end
+
