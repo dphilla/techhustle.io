@@ -2,8 +2,7 @@ class CreateRelationships < ActiveRecord::Migration[5.1]
   def change
     create_table :relationships do |t|
       t.string :status
-      
-      t.timestamps
+      t.string :action_taken
     end
   end
 end

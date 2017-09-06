@@ -9,10 +9,8 @@
 # you'll amass, the slower it'll run and the greater likelihood for issues).
 #
 # It's strongly recommended that you check this file into your version control system.
-#
-# sql schema is here: http://ondras.zarovi.cz/sql/demo/?keyword=dphilla_net_work
 
-ActiveRecord::Schema.define(version: 20170730162859) do
+ActiveRecord::Schema.define(version: 20170906021029) do
 
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
@@ -23,7 +21,8 @@ ActiveRecord::Schema.define(version: 20170730162859) do
     t.text "organization"
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
-    t.string "relationship"
+    t.bigint "relationship_id"
+    t.index ["relationship_id"], name: "index_connections_on_relationship_id"
   end
 
   create_table "contact_points", force: :cascade do |t|
@@ -46,6 +45,11 @@ ActiveRecord::Schema.define(version: 20170730162859) do
     t.index ["connection_id"], name: "index_notes_on_connection_id"
   end
 
+  create_table "relationships", force: :cascade do |t|
+    t.string "status"
+    t.string "action_taken"
+  end
+
   create_table "user_connections", force: :cascade do |t|
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
@@ -63,6 +67,7 @@ ActiveRecord::Schema.define(version: 20170730162859) do
     t.integer "role", default: 0
   end
 
+  add_foreign_key "connections", "relationships"
   add_foreign_key "contact_points", "connections"
   add_foreign_key "notes", "connections"
   add_foreign_key "user_connections", "connections"

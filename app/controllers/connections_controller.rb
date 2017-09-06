@@ -1,6 +1,6 @@
 class ConnectionsController < ApplicationController
 
-  def new
+  def new                                   #logic for checking for user (probably flow control)
     @connection = Connection.new
   end
 

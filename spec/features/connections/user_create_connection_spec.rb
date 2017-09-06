@@ -22,7 +22,7 @@ RSpec.describe "user" do
                                      description: "just some bs")
 
     visit new_connection_path
-    current_user = user
+    current_user = user  #what is going on here to check the current user, is there a better way
 
     fill_in "Name", with: connection.name
     fill_in "Initial meet", with: connection.initial_meet
