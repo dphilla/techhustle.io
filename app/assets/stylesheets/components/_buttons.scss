@@ -1,0 +1,23 @@
+
+.button {
+  border: 1px black solid;
+  border-radius: 5px;
+  color: white;
+  display: block;
+  font-family: arial;
+  font-size: 16px;
+  padding: 10px;
+  text-decoration: none;
+  max-width: 60px;
+  &.favorite {
+    background-color: yellow;     // here you can chain to types of button
+    color: black;
+  }
+  &.contact {
+    background-color: blue;
+  }
+  &.link-to {
+    background-color: red;
+  }
+}
+

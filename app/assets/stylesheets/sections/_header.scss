@@ -1,0 +1,14 @@
+
+@import 'base';
+
+header {
+// header styles
+  background-color: $dark;
+  h1  {
+    color: $light;
+    font-size: 40px;
+    font-weight: bold;
+    text-align: center;
+  }
+}
+

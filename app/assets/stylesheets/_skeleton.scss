@@ -1,0 +1,17 @@
+//applies styles site-wide
+
+h1, h2, h3, h4, h5, h6 {
+  font-family: Helvetica;
+}
+p a {
+  font-family: Arial;
+  font-size: 14px;
+}
+section {
+  border: 1px black solid;
+  min-height: 500px;
+  margin: 20px auto;
+  padding: 30px auto;
+  width: 80%;
+}
+
