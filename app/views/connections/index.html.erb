@@ -3,8 +3,6 @@
 <% @connections.each do |connection| %>
   <%= connection.name %>
   <%= connection.organization %>
-  <p> Most recent point of contact:
-  <%= connection.interactions.last.event %> </p>
   <%= link_to "Delete Connection", connection_path(connection), method: "delete" %>
   <%= link_to "Edit", edit_connection_path(connection) %>
 <% end  %>
