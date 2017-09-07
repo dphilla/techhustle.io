@@ -10,4 +10,8 @@ class ApplicationController < ActionController::Base
     current_user && current_user.admin? #needs both bc if current_user is nil needs to be checked, otherwise will error out
   end
 
+  def check_current_user
+    redirect_to login_path unless current_user
+    flash[:notice] = "Please sign up or log in to see your networking info"
+  end
 end

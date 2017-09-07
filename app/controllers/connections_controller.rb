@@ -1,15 +1,15 @@
 class ConnectionsController < ApplicationController
+before_action :check_current_user
 
-  def new                                   #logic for checking for user (probably flow control)
+  def new
     @connection = Connection.new
   end
 
   def create
     @connection = Connection.new(connection_params)
-    if @connection.save! && current_user
+    if @connection.save
       redirect_to @connection
     else
-     flash[:warning] = "You gotta sign in to grow your network!"
      redirect_to new_connection_path
     end
   end

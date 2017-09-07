@@ -1,3 +1,4 @@
+<p><%= flash.notice %></p>
 <%= form_for(:session, url: login_path) do |f| %> <!-- but whats going on here again? --->
   <%= f.label :username %>
   <%= f.text_field :username %>
@@ -5,3 +6,5 @@
   <%= f.password_field :password %>
   <%= f.submit "Login" %>
 <% end %>
+
+
