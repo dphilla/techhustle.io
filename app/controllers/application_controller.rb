@@ -7,7 +7,7 @@ class ApplicationController < ActionController::Base
   end
 
   def current_admin
-    current_user && current_user.admin?
+    current_user && current_user.admin? #needs both bc if current_user is nil needs to be checked, otherwise will error out
   end
 
 end

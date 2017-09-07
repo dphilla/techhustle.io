@@ -29,7 +29,7 @@ RSpec.describe "user" do
     fill_in "Initial meet", with: connection.initial_meet
     fill_in "Organization", with: connection.organization
     select Relationship.last.status, from: "connection[relationship_id]"
-    click_on "Create New Connection"
+    click_on "Create"
 
     expect(current_path).to eq(connection_path(Connection.last.id))
     expect(page).to have_content("#{connection.name}")

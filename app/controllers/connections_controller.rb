@@ -22,6 +22,16 @@ class ConnectionsController < ApplicationController
     @connections = Connection.all
   end
 
+  def edit
+    @connection = Connection.find(params[:id])
+  end
+
+  def update
+    @connection = Connection.find(params[:id])
+    @connection.update(connection_params)
+    redirect_to connections_path
+  end
+
   def destroy
      connection = Connection.find(params[:id])
      connection.interactions.destroy_all
