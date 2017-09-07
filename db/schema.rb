@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20170906021029) do
+ActiveRecord::Schema.define(version: 20170907001714) do
 
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
@@ -25,7 +25,7 @@ ActiveRecord::Schema.define(version: 20170906021029) do
     t.index ["relationship_id"], name: "index_connections_on_relationship_id"
   end
 
-  create_table "contact_points", force: :cascade do |t|
+  create_table "interactions", force: :cascade do |t|
     t.date "date"
     t.text "location"
     t.text "event"
@@ -33,7 +33,7 @@ ActiveRecord::Schema.define(version: 20170906021029) do
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
     t.bigint "connection_id"
-    t.index ["connection_id"], name: "index_contact_points_on_connection_id"
+    t.index ["connection_id"], name: "index_interactions_on_connection_id"
   end
 
   create_table "notes", force: :cascade do |t|
@@ -68,7 +68,7 @@ ActiveRecord::Schema.define(version: 20170906021029) do
   end
 
   add_foreign_key "connections", "relationships"
-  add_foreign_key "contact_points", "connections"
+  add_foreign_key "interactions", "connections"
   add_foreign_key "notes", "connections"
   add_foreign_key "user_connections", "connections"
   add_foreign_key "user_connections", "users"

@@ -1,3 +1,0 @@
-class ContactPointsController < ApplicationController
-
-end
