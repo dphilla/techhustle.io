@@ -15,20 +15,19 @@ RSpec.describe "user" do
 
     connection1 = Connection.create(name: "Brett",
                                    initial_meet: "10/12/12",
-                                   organization: "Navy",
-                                   relationship: "Acquantance")
+                                   organization: "Navy")
 
     connection2 = Connection.create(name: "John",
                         initial_meet: "10/12/14",
-                        organization: "Navy",
-                        relationship: "Acquantance")
+                        organization: "Navy")
 
+    create(:relationship)
 
-    connection1.contact_points.create(date: "10/10/10", event: "code demo",
+    connection1.interactions.create(date: "10/10/10", event: "code demo",
                                      location: "turing",
                                      description: "just some bs")
 
-    connection2.contact_points.create(date: "10/10/10", event: "code demo",
+    connection2.interactions.create(date: "10/10/10", event: "code demo",
                                      location: "turing",
                                      description: "just some bs")
 

@@ -3,6 +3,7 @@ require 'rails_helper'
 RSpec.describe "user" do
   it "can create a new connection" do
     user = User.create(username: "Daniel", password: "something")
+    create(:relationship)
 
     visit login_path
     fill_in "session[username]", with: "Daniel"
@@ -17,7 +18,7 @@ RSpec.describe "user" do
                                    initial_meet: "10/12/12",
                                    organization: "navy")
 
-    connection.contact_points.create(date: "10/10/10", event: "code demo",
+    connection.interactions.create(date: "10/10/10", event: "code demo",
                                      location: "turing",
                                      description: "just some bs")
 

@@ -1,10 +1,10 @@
 <%= flash[:message]  %>
 
-<%= @connections.each do |connection| %>
+<% @connections.each do |connection| %>
   <%= connection.name %>
   <%= connection.organization %>
   <p> Most recent point of contact:
-  <%= connection.contact_points.first.event %> </p>
+  <%= connection.interactions.last.event %> </p>
   <%= link_to "Delete Connection", connection_path(connection), method: "delete" %>
 <% end  %>
 

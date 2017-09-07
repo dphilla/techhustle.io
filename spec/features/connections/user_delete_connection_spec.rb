@@ -9,12 +9,11 @@ RSpec.describe "user" do
                                  organization: "navy")
 
 
-    connection.contact_points.create(date: "10/10/10", event: "code demo",
+    connection.interactions.create(date: "10/10/10", event: "code demo",
                                      location: "turing",
                                      description: "just some bs")
 
   visit connections_path
-
   expect(page).to have_content("Delete Connection")
 
   click_on "Delete Connection"

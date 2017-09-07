@@ -24,7 +24,7 @@ class ConnectionsController < ApplicationController
 
   def destroy
      connection = Connection.find(params[:id])
-     connection.contact_points.destroy_all
+     connection.interactions.destroy_all
      connection.destroy
      flash[:message] = "Connection Deleted!"
      redirect_to connections_path
@@ -33,6 +33,6 @@ class ConnectionsController < ApplicationController
 private
 
   def connection_params
-    params.require(:connection).permit(:name, :initial_meet, :organization)
+    params.require(:connection).permit(:name, :initial_meet, :organization, :relationship_id)
   end
 end
