@@ -3,12 +3,15 @@
 <%= form_for @connection do |f| %>
   <%= f.label :name   %>
   <%= f.text_field :name   %>
+
   <%= f.label :initial_meet  %>
   <%= f.text_field :initial_meet   %>
+
   <%= f.label :organization   %>
   <%= f.text_field :organization   %>
-  <%= f.label :relationship   %>
-  <%= f.text_field :relationship   %>
+
+  <%= f.label :relationship %>
+  <%= f.collection_select :relationship_id, Relationship.all, :id, :status %>
 
   <%= f.submit "Create New Connection" %>
 <% end  %>

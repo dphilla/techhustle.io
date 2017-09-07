@@ -27,7 +27,7 @@ RSpec.describe "user" do
     fill_in "Name", with: connection.name
     fill_in "Initial meet", with: connection.initial_meet
     fill_in "Organization", with: connection.organization
-    fill_in "Relationship", with: "acquantance"
+    select Relationship.last.status, from: "connection[relationship_id]"
     click_on "Create New Connection"
 
     expect(current_path).to eq(connection_path(Connection.last.id))
