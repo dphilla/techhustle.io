@@ -1,39 +1,41 @@
 class ConnectionsController < ApplicationController
+before_action :current_user
 before_action :check_current_user
 
   def new
-    @connection = Connection.new
+    @connection = @user.connections.new
   end
 
   def create
-    @connection = Connection.new(connection_params)
+    @connection = @user.connections.new(connection_params)
     if @connection.save
-      redirect_to @connection
+      @user.connections << @connection #why do I have to do this???????????????????????????? (I can do it in the console)
+      redirect_to connection_path(@connection)
     else
      redirect_to new_connection_path
     end
   end
 
   def show
-    @connection = Connection.find(params[:id])
+    @connection = @user.connections.find(params[:id])
   end
 
   def index
-    @connections = Connection.all
+    @connections = @user.connections.all
   end
 
   def edit
-    @connection = Connection.find(params[:id])
+    @connection = @user.connections.find(params[:id])
   end
 
   def update
-    @connection = Connection.find(params[:id])
+    @connection = @user.connections.find(params[:id])
     @connection.update(connection_params)
     redirect_to connections_path
   end
 
   def destroy
-     connection = Connection.find(params[:id])
+     connection = @user.connections.find(params[:id])
      connection.interactions.destroy_all
      connection.destroy
      flash[:message] = "Connection Deleted!"
@@ -45,4 +47,5 @@ private
   def connection_params
     params.require(:connection).permit(:name, :initial_meet, :organization, :relationship_id)
   end
+
 end

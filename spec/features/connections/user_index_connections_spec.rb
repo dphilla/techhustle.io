@@ -1,7 +1,7 @@
 require 'rails_helper'
 
-RSpec.describe "user" do
-  it "can create a new connection" do
+feature "user" do
+  it "can see index of connection" do
     user = User.create(username: "Daniel", password: "something")
 
     visit login_path
@@ -13,13 +13,13 @@ RSpec.describe "user" do
     expect(page).to have_content("Hey, #{user.username}, let's grow your network")
 
 
-    connection1 = Connection.create(name: "Brett",
-                                   initial_meet: "10/12/12",
-                                   organization: "Navy")
+    connection1 = user.connections.create(name: "brett",
+                                 initial_meet: "10/12/12",
+                                 organization: "navy")
+    connection2 = user.connections.create(name: "brett",
+                                 initial_meet: "10/12/12",
+                                 organization: "navy")
 
-    connection2 = Connection.create(name: "John",
-                        initial_meet: "10/12/14",
-                        organization: "Navy")
 
     create(:relationship)
 
@@ -32,9 +32,6 @@ RSpec.describe "user" do
                                      description: "just some bs")
 
     visit connections_path
-
-    current_user = user
-
 
     expect(current_path).to eq(connections_path)
     expect(page).to have_content("#{connection2.name}")

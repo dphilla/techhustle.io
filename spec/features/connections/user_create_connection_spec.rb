@@ -14,7 +14,7 @@ RSpec.describe "user" do
     expect(page).to have_content("Hey, #{user.username}, let's grow your network")
 
 
-    connection = Connection.create(name: "brett",
+    connection = user.connections.create(name: "brett",
                                    initial_meet: "10/12/12",
                                    organization: "navy")
 
@@ -23,8 +23,6 @@ RSpec.describe "user" do
                                      description: "just some bs")
 
     visit new_connection_path
-    current_user = user  #what is going on here to check the current user, is there a better way
-
     fill_in "Name", with: connection.name
     fill_in "Initial meet", with: connection.initial_meet
     fill_in "Organization", with: connection.organization

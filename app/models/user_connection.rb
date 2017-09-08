@@ -1,4 +1,4 @@
 class UserConnection < ApplicationRecord
-  belongs_to :users
-  belongs_to :connections
+  belongs_to :user
+  belongs_to :connection
 end
