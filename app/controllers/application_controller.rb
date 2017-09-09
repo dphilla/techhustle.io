@@ -14,4 +14,9 @@ class ApplicationController < ActionController::Base
     redirect_to login_path unless current_user
     flash[:notice] = "Please sign up or log in to see your networking info"
   end
+
+  def sets_user_connection
+    @connection = @user.connections.find(params[:id])
+  end
+
 end

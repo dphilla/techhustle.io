@@ -1,7 +1,7 @@
 <%= flash[:message]  %>
 
 <% @connections.each do |connection| %>
-  <%= connection.name %>
+  <%= link_to connection.name, connection_path(connection) %>
   <%= connection.organization %>
   <%= link_to "Delete Connection", connection_path(connection), method: "delete" %>
   <%= link_to "Edit", edit_connection_path(connection) %>
