@@ -37,14 +37,12 @@ feature "User" do
 
 
     visit connections_path
-
     click_on "#{connection1.name}"
-save_and_open_page
     fill_in "interaction[date]", with: "10/10/12"
     fill_in "interaction[location]", with: "Galvanize"
     fill_in "interaction[event]", with: "Meet-up"
     fill_in "interaction[description]", with: "Spoke to him about blockchain and then, for some reason, about FDR"
-    click_on "Submit"
+    click_on "Create"
 
     expect(page).to have_content("Galvanize")
   end

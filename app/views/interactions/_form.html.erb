@@ -1,11 +1,12 @@
 <%= form_for [@connection, @interaction] do |f| %>
   <%= f.label "date" %>
-  <%= f.text_field "interaction[date]" %>
+  <%= f.text_field "date" %>
   <%= f.label "location" %>
-  <%= f.text_field "interaction[location]" %>
+  <%= f.text_field "location" %>
   <%= f.label "event" %>
-  <%= f.text_field "interaction[event]" %>
+  <%= f.text_field "event" %>
   <%= f.label "description" %>
-  <%= f.text_area "interaction[description]" %>
+  <%= f.text_area "description" %>
 
   <%= f.submit %>
+<% end  %>

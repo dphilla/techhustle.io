@@ -16,7 +16,7 @@ class ApplicationController < ActionController::Base
   end
 
   def sets_user_connection
-    @connection = @user.connections.find(params[:id])
+    @connection = @user.connections.find(params[:connection_id])
   end
 
 end

@@ -1,8 +1,9 @@
 <h2>Interactions with <%= @connection.name %></h2>
 
-<p><%= @interaction.date %></p>
-<p><%= @interaction.location %></p>
-<p><%= @interaction.event %></p>
-<p><%= @interaction.description %></p>
+<%@interactions.each do |interaction| %>
+   <p><%= interaction.date %></p>
+   <p><%= interaction.location %></p>
+   <p><%= interaction.event %></p>
+   <p><%= interaction.description %></p>
+<% end %>
 
-<%= render partial: 'form' %>
