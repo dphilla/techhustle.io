@@ -37,7 +37,7 @@ feature "User" do
 
 
     visit connections_path
-    click_on "#{connection1.name}"
+    click_on "#{connection1.name}"                                                  #need to dry this up (lines 6-40)
     fill_in "interaction[date]", with: "10/10/12"
     fill_in "interaction[location]", with: "Galvanize"
     fill_in "interaction[event]", with: "Meet-up"
