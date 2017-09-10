@@ -1,7 +1,7 @@
 <h2>Interactions with <%= @connection.name %></h2>
 
 <%@interactions.each do |interaction| %>
-   <p><%= interaction.date %></p>
+   <%#<p><%= link_to interaction.date, connection_interaction_path() %></p>%>
    <p><%= interaction.location %></p>
    <p><%= interaction.event %></p>
    <p><%= interaction.description %></p>

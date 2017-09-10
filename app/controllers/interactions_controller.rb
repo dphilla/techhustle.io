@@ -19,10 +19,20 @@ before_action :sets_user_connection
     @interaction = @connection.interactions.all
   end
 
+  def show
+    @interaction = @connection.interactions.find(params[:id])
+  end
+
+  def destroy
+    interaction = @connection.interactions.find(params[:id])
+    interaction.destroy
+    redirect_to connection_path(@connection)
+  end
+
   private
 
   def interaction_params
-    params.require(:interaction).permit(:date, :location, :event, :description)
+    params.require(:interaction).permit(:date, :location, :event, :description, :connection_id)
   end
 
 
