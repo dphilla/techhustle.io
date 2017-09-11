@@ -1,17 +1,17 @@
 
 
 <%= form_for @connection do |f| %>
-  <%= f.label :name   %>
-  <%= f.text_field :name   %>
+  <p><%= f.label :name   %>
+  <%= f.text_field :name   %> </p>
 
-  <%= f.label :initial_meet  %>
-  <%= f.text_field :initial_meet   %>
+  <p><%= f.label :initial_meet  %>
+  <%= f.text_field :initial_meet   %></p>
 
-  <%= f.label :organization   %>
-  <%= f.text_field :organization   %>
+  <p><%= f.label :organization   %>
+  <%= f.text_field :organization   %></p>
 
-  <%= f.label :relationship %>
-  <%= f.collection_select :relationship_id, Relationship.all, :id, :status %>
+  <p><%= f.label :relationship %>
+  <%= f.collection_select :relationship_id, Relationship.all, :id, :status %></p>
 
-  <%= f.submit %>
+  <p><%= f.submit %></p>
 <% end  %>

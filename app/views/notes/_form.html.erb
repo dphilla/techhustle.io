@@ -1,0 +1,7 @@
+<%= form_for [@connection, @note] do |f| %>
+  <%= f.label "Note" %>
+  <%= f.text_area "content" %>
+  <%= f.label "date" %>
+  <%= f.text_field "date" %>
+  <%= s.submit "Add Note"  %>
+<% end  %>

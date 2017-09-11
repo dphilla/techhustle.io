@@ -1,4 +1,22 @@
-<%= @connection.name %>
 
-<%= render partial: 'interactions/index' %>
-<%= render partial: 'interactions/form' %>
+<header>
+<h1><%= current_user.username %>  Net.werk </h1>
+</header>
+
+    <main>
+      <section class="connections">
+        <h2><%= @connection.name %> </h2>
+        <div>
+          <%= render partial: 'interactions/index' %>
+        </div>
+        <div>
+          <%= render partial: 'interactions/form' %>
+        </div>
+      </section>
+    </main>
+
+    <footer>
+      <a class="button contact" href="https://twitter.com/d_philla">Follow us on Twitter</a>
+    </footer>
+
+

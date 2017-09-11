@@ -1,11 +1,24 @@
 <%= flash[:message]  %>
 
-<% @connections.each do |connection| %>
-  <%= link_to connection.name, connection_path(connection) %>
-  <%= connection.organization %>
-  <%= link_to "Delete Connection", connection_path(connection), method: "delete" %>
-  <%= link_to "Edit", edit_connection_path(connection) %>
-<% end  %>
+<header>
+<h1><%= current_user.username %>  Net.werk </h1>
+</header>
 
+    <main>
+      <section class="connections">
+        <div>
+          <% @connections.each do |connection| %>
+            <p><%= link_to connection.name, connection_path(connection) %> </p>
+            <p><%= connection.organization %></p>
+            <p><%= link_to "Edit", edit_connection_path(connection) %> </p>
+            <p><%= link_to "Delete Connection", connection_path(connection), method: "delete" %> </p>
+          <% end  %>
+        </div>
+      </section>
+    </main>
+
+    <footer>
+      <a class="button contact" href="https://twitter.com/d_philla">Follow us on Twitter</a>
+    </footer>
 
 

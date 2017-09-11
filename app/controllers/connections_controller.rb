@@ -20,6 +20,7 @@ before_action :check_current_user
     @connection = @user.connections.find(params[:id])
     @interactions = @connection.interactions
     @interaction = @connection.interactions.new
+    #byebug
   end
 
   def index
