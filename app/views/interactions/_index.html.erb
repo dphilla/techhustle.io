@@ -1,6 +1,6 @@
 <h3>Recent interactions:</h3>
 
-<%= @interactions.each do |interaction| %>
+<% @interactions.each do |interaction| %>
   <p><a href="/connections/<%=interaction.connection.id%>/interactions/<%=interaction.id%>"><%= interaction.date %></a></p> <!--- why do can't I user link helpers here'--->
    <p><%= interaction.location %></p>
    <p><%= interaction.event %></p>
