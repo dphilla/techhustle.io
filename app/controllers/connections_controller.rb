@@ -9,7 +9,7 @@ before_action :check_current_user
   def create
     @connection = @user.connections.new(connection_params)
     if @connection.save
-      @user.connections << @connection #why do I have to do this???????????????????????????? (I can do it in the console with shoveling)
+      @user.connections << @connection
       redirect_to connection_path(@connection)
     else
      redirect_to new_connection_path

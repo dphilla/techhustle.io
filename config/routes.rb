@@ -1,5 +1,6 @@
 Rails.application.routes.draw do
 
+  root 'welcome#index'
   namespace :admin do
     resources :users, only: [:index]
   end
@@ -12,5 +13,4 @@ Rails.application.routes.draw do
   resources :connections do
     resources :interactions
   end
-  root 'users#show'
 end
