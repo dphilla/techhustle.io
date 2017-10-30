@@ -1,5 +1,9 @@
-# Net_work
+## TechHustle.io
 
-* alias -- "DeepLoop"
 
-* experimented with adding a (re)-captcha.
+### Description
+
+A networking app that tracks, analyizes, anticipates, and helps to
+facilitate interactions with professional contacts
+
+
