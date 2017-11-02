@@ -10,11 +10,34 @@
   </head>
 
   <body>
+
     <% if current_user %>
     <%= current_user.username %>
     <%= link_to "Logout", logout_path, method: :delete %>
   <% else %>
+    <%= link_to "Login", login_path %> or <%= link_to "Create an Account", new_user_path %>
   <% end %>
+
+      <div id="nav-trigger" class="nav-trigger open">
+        <span class="line"></span>
+        <span class="line"></span>
+        <span class="line"></span>
+      </div>
+      <nav id="nav" class="out">
+        <ul>
+          <li><span class="nav-label">Home</span></span></li>
+          <li><span class="nav-label">About</span></li>
+          <li><span class="nav-label">Work</span></li>
+          <li><span class="nav-label">Blog</span></li>
+          <li><span class="nav-label">Contact</span></li>
+        </ul>
+      </nav>
+
     <%= yield %>
+
+    <footer>
+      <a class="button contact" href="http://dphilla.com">More about dphilla</a>
+    </footer>
+
   </body>
 </html>
