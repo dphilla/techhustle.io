@@ -18,4 +18,8 @@ Rails.application.routes.draw do
   resources :connections do
     resources :interactions
   end
+
+  get "/dashboard", to: "dashboard#index"
+  get "/dashboard/analytics", to: "dashboard#show"
+
 end
