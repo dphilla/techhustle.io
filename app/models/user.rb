@@ -17,6 +17,10 @@ class User < ApplicationRecord
       new_user.id_token           = auth_info.extra.id_token
       new_user.password           = SecureRandom.hex(9)
     end
-
   end
+
+  def self.sort_by_mutual_connections(current_user_id)
+    #sort by numberof mutual connections (Desc) as compared to current user
+  end
+
 end

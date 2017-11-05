@@ -1,3 +1,6 @@
+<h1>Your Hustle Dashboard</h1>
+
+
 <div>
   predictive analytics
 </div>
@@ -21,3 +24,13 @@
 <div>
   Other stuff?
 </div>
+
+<p>
+<h2>Expand your network by sharing your hustle network with friends></h2>
+  <div>
+    People you may know:
+    <% @hustlers.each do |hustler| %>
+    <%= hustler.name %>
+  <% end %>
+  </div>
+</p>

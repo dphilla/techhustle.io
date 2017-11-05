@@ -7,7 +7,7 @@ class DashboardController < ApplicationController
 
 
   def show
-
+    @hustlers = User.sort_by_mutual_connections(current_user.id)
   end
 
 end
