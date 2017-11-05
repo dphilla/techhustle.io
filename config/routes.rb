@@ -17,6 +17,7 @@ Rails.application.routes.draw do
 
   resources :connections do
     resources :interactions
+    resources :notes, only: [:new, :create, :show, :index]
   end
 
   get "/dashboard", to: "dashboard#index"

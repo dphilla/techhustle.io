@@ -18,9 +18,10 @@ before_action :check_current_user
 
   def show
     @connection = @user.connections.find(params[:id])
+    @notes = @connection.notes
+    @note = @connection.notes.new
     @interactions = @connection.interactions
     @interaction = @connection.interactions.new
-    #byebug
   end
 
   def index

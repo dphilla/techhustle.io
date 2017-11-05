@@ -1,3 +1,5 @@
+<% unless @notes.nil? %>
 <p><% @notes.each do |note|  %>
   <%= note.content %>
 <% end  %></p>
+<% end   %>
