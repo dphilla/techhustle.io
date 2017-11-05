@@ -3,5 +3,6 @@ class Connection < ApplicationRecord
   has_many :notes
   has_many :user_connections, dependent: :destroy
   has_many :users, through: :user_connections
+  belongs_to :relationship
 
 end

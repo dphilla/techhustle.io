@@ -12,11 +12,13 @@
 #
 
 
-    user = User.first
+    #user = User.first
 
 
-    Connection.destroy_all
-    Interaction.destroy_all
+    #Connection.destroy_all
+    #Interaction.destroy_all
+    #Relationship.destroy_all
+
 
     connection1 = user.connections.create(name: "brett",
                                  initial_meet: "10/12/12",
@@ -71,4 +73,18 @@
     connection4.interactions.create(date: "10/10/10", event: "code demo",
                                      location: "turing",
                                      description: "just some bs")
+
+
+    #create and associate connections with relationship
+    Relationship.create(status: "Acquaintance")
+    Relationship.create(status: "Repeat Acquaintance")
+    Relationship.create(status: "In-Network Contact")
+    Relationship.create(status: "Colleague")
+
+    connections = Connection.all
+    connections.each do |connection|
+      connection.relationship = Relationship.find(rand(Relationship.first.id..Relationship.last.id))
+      connection.save!
+    end
+
 
