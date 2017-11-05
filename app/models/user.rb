@@ -19,8 +19,10 @@ class User < ApplicationRecord
     end
   end
 
-  def self.sort_by_mutual_connections(current_user_id)
-    #sort by numberof mutual connections (Desc) as compared to current user
+  def self.sort_by_mutual_connections(current_user)
+    #ids = current_user.connections.ids
+    #user.joins(:connections).order('connections.id DESC').limit(5)       #optimize this to order by users with most similar contacts
+    all
   end
 
 end

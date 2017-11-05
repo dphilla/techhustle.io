@@ -1,3 +1,6 @@
+<h1>Your Hustle Dashboard</h1>
+
+
 <div>
   Activity streaming from contacts
 </div>
@@ -33,3 +36,16 @@ Your "Network's Health"
 <div>
   Other stuff?
 </div>
+
+<p>
+<h2>Expand your network by sharing your hustle network with friends></h2>
+  <div>
+    People you may know:
+    <% @other_users.each do |user| %>
+    <p><%= user.username %>
+      <%= link_to "Request Hustler Synergy", "/" %>
+    </p>
+     <%#picture%>
+  <% end %>
+  </div>
+</p>
