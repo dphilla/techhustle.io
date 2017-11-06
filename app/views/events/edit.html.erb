@@ -1,14 +1,12 @@
-<h1>Create a New Event</h1>
+<h1> Update this event </h1>
 <%= form_for [@event] do |f| %>
   <%= f.label "Event Title" %>
   <%= f.text_field "title" %>
   <%= f.label "date" %>
   <%= f.text_field "start_time" %>
-  <%= f.submit "Add Event"  %>
+  <%= f.submit "Update Event"  %>
 <% end  %>
-
 
  <div>
    Add options to search for hustlers and for contacts to add to event
  </div>
-

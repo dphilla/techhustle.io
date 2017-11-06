@@ -34,7 +34,14 @@ before_action :check_current_user
 
   def destroy
     event = Event.find(params[:id])
+    event.destroy
     redirect_to events_path
   end
+
+  private
+
+    def event_params
+      params.require(:event).permit(:start_time, :title)
+    end
 
 end
