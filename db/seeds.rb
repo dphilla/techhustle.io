@@ -10,14 +10,12 @@
   #schema http://ondras.zarovi.cz/sql/demo/?keyword=dphilla_net_work
 #
 #
+    user =  User.create(username: "danielp", password: "password")
 
 
-    #user = User.first
-
-
-    #Connection.destroy_all
-    #Interaction.destroy_all
-    #Relationship.destroy_all
+    Connection.destroy_all
+    Interaction.destroy_all
+    Relationship.destroy_all
 
 
     connection1 = user.connections.create(name: "brett",
