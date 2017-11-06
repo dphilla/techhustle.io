@@ -1,4 +1,4 @@
-<h1>Your Hustle Dashboard</h1>
+<h1>Hustle Dashboard</h1>
 
 
 <div>                                                stream.io
@@ -25,8 +25,10 @@
 Your "Network's Health"
 </div>
 
-<div>                                               google cal
-  google cal integration, with reminders
+<div>
+<%= month_calendar do |date| %>
+  <%= date %>
+<% end %>
 </div>
 
 <div>
@@ -42,7 +44,7 @@ Your "Network's Health"
     People you may know:
     <% @other_users.each do |user| %>
     <p><%= user.username %>
-      <%= link_to "Request Hustler Synergy", "/" %>
+      <%= link_to "Request Hustle Synergy", "/" %>
     </p>
      <%#picture%>
   <% end %>

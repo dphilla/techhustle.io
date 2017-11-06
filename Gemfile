@@ -36,6 +36,9 @@ gem 'bcrypt', '~> 3.1.7'
 gem 'bourbon'
 gem 'omniauth-google-oauth2'
 gem 'figaro'
+gem 'highcharts-rails'
+gem "simple_calendar", "~> 2.0"
+
 
 # Use Capistrano for deployment
 # gem 'capistrano-rails', group: :development
@@ -49,6 +52,7 @@ group :development, :test do
   gem 'launchy'
   gem 'factory_girl_rails'
   gem 'database_cleaner'
+  gem 'simplecov'
 end
 
 group :development do
