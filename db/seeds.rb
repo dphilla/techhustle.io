@@ -10,13 +10,14 @@
   #schema http://ondras.zarovi.cz/sql/demo/?keyword=dphilla_net_work
 #
 #
-    user =  User.create(username: "DEP", password: "password")
 
 
     Connection.destroy_all
     Interaction.destroy_all
     Relationship.destroy_all
 
+    User.create(username: "DEP", password: "password")
+    user = User.last
 
     connection1 = user.connections.create(name: "brett",
                                  initial_meet: "10/12/12",
