@@ -1,4 +1,8 @@
 FactoryGirl.define do
+  factory :event do
+    title "MyString"
+    start_time "2017-11-06 08:16:28"
+  end
   factory :user do
     username "DanielTest"
     password_digest "xyz"

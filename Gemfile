@@ -37,7 +37,7 @@ gem 'bourbon'
 gem 'omniauth-google-oauth2'
 gem 'figaro'
 gem 'highcharts-rails'
-gem "simple_calendar", "~> 2.0"
+gem "simple_calendar"
 
 
 # Use Capistrano for deployment

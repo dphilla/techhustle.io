@@ -25,11 +25,16 @@
 Your "Network's Health"
 </div>
 
-<div>
-<%= month_calendar do |date| %>
+<%= month_calendar events: @events do |date, meetings| %>
   <%= date %>
+
+  <% meetings.each do |meeting| %>
+    <div>
+      <%= link_to meeting.title, event_path(meeting)  %>
+    </div>
+  <% end %>
 <% end %>
-</div>
+
 
 <div>
   Other stuff?

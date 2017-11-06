@@ -20,6 +20,9 @@ Rails.application.routes.draw do
     resources :notes, only: [:new, :create, :show, :index]
   end
 
+  #for calendar
+  resources :events
+
   get "/dashboard", to: "dashboard#index"
   get "/dashboard/analytics", to: "dashboard#show"
 
