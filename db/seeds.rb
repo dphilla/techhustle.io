@@ -18,23 +18,31 @@
 
     User.create(username: "DEP", password: "password")
     user = User.last
+    #create and associate connections with relationship
+    default_relationship =  Relationship.create!(status: "Acquaintance")
+    Relationship.create(status: "Repeat Acquaintance")
+    Relationship.create(status: "In-Network Contact")
+    Relationship.create(status: "Colleague")
+
+
 
     connection1 = user.connections.create(name: "brett",
                                  initial_meet: "10/12/12",
-                                 organization: "navy")
+                                 organization: "navy",
+                                 relationship_id: default_relationship.id)
     connection2 = user.connections.create(name: "William",
                                  initial_meet: "10/12/12",
-                                 organization: "navy")
+                                 organization: "navy", relationship_id: default_relationship.id)
     connection3 = user.connections.create(name: "Alex",
                                  initial_meet: "10/12/12",
-                                 organization: "navy")
+                                 organization: "navy", relationship_id: default_relationship.id)
     connection4 = user.connections.create(name: "Beyonce",
                                  initial_meet: "10/12/12",
-                                 organization: "navy")
+                                 organization: "navy", relationship_id: default_relationship.id)
 
     connection4 = user.connections.create(name: "Billy",
                                  initial_meet: "10/12/12",
-                                 organization: "navy")
+                                 organization: "navy", relationship_id: default_relationship.id)
 
 
     connection1.interactions.create(date: "10/10/10", event: "code demo",
@@ -74,11 +82,6 @@
                                      description: "just some bs")
 
 
-    #create and associate connections with relationship
-    Relationship.create(status: "Acquaintance")
-    Relationship.create(status: "Repeat Acquaintance")
-    Relationship.create(status: "In-Network Contact")
-    Relationship.create(status: "Colleague")
 
     connections = Connection.all
     connections.each do |connection|
