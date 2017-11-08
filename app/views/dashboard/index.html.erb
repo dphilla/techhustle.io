@@ -1,5 +1,8 @@
-<h1>Hustle Dashboard</h1>
+<br></br>
 
+<header>
+<h1>Hustle Dashboard</h1>
+</header>
 
 <div>
   Contact suggestions, search LinkedIn, other contacts?
@@ -16,18 +19,3 @@
 <div>
   <%= link_to "Hustle Analysis", dashboard_analytics_path %>
 </div>
-<p>
-<h2>Expand your network by integrating your hustle network with friends></h2>
-  <div>
-    People you may know:
-    <% @other_users.each do |user| %>
-    <p><%= user.username %>
-    <%= link_to "Request Synergy", "/" %>
-    </p>
-     <%#picture%>
-  <% end %>
-  </div>
-  This needs to create a request to this other user to merge contacts,
-                                                A Req goes to the other user and then, upon approval, contacts are combined
-                                                alert messages for each of these actions
-</p>
