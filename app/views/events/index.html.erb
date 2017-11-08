@@ -1,9 +1,14 @@
 <h1> Your Upcoming Events </h1>
 
-<div>
-  <% @events.each do |event| %>
-   <%= link_to event.title, event_path(event) %>
+
+<%= month_calendar events: @events do |date, meetings| %>
+  <%= date %>
+
+  <% meetings.each do |meeting| %>
+    <div>
+      <%= link_to meeting.title, event_path(meeting)  %>
+    </div>
   <% end %>
-</div>
+<% end %>
 
 <p><%= link_to "Add a New Event", new_event_path %></p>

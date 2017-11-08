@@ -2,35 +2,16 @@
 
 
 <div>
-  Contact suggestions, search LinkedIn for related connections that already exist but current_user isnt connected with?
+  Contact suggestions, search LinkedIn, other contacts?
 </div>
 
 <div>
- sorted rolodex
+  <%= link_to "Upcoming Events", events_path %>
 </div>
-
 <div>
-  link to interactions analytics
+  <%= link_to "Connections", connections_path %>
 </div>
 
-<div>
-Your "Network's Health"
-</div>
-
-<%= month_calendar events: @events do |date, meetings| %>
-  <%= date %>
-
-  <% meetings.each do |meeting| %>
-    <div>
-      <%= link_to meeting.title, event_path(meeting)  %>
-    </div>
-  <% end %>
-<% end %>
-
-
-<div>
-  Other stuff?
-</div>
 
 <div>
   <%= link_to "Hustle Analysis", dashboard_analytics_path %>
@@ -41,11 +22,12 @@ Your "Network's Health"
     People you may know:
     <% @other_users.each do |user| %>
     <p><%= user.username %>
-    <%= link_to "Request Synergy", "/" %>  This needs to create a request to this other user to merge contacts,
-                                                A Req goes to the other user and then, upon approval, contacts are combined
-                                                alert messages for each of these actions
+    <%= link_to "Request Synergy", "/" %>
     </p>
      <%#picture%>
   <% end %>
   </div>
+  This needs to create a request to this other user to merge contacts,
+                                                A Req goes to the other user and then, upon approval, contacts are combined
+                                                alert messages for each of these actions
 </p>

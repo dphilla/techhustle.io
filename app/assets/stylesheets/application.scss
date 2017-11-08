@@ -175,9 +175,9 @@ nav.in li {
 
 // site content
 .header {
-  background: url(https://s3-us-west-2.amazonaws.com/s.cdpn.io/53148/bg.jpg);
+  background: url(https://www.jobscan.co/blog/wp-content/uploads/2014/12/networking.jpg);
   background-size: cover;
-  position: relative;
+  //position: relative;
   width: 100%;
   min-height: 100%;
   top: 0px;
@@ -185,7 +185,7 @@ nav.in li {
 
 .header h1 {
   width: 100%;
-  color: #fff;
+  color: black;
   position: absolute;
   margin: 0;
   font-family: $headings;
@@ -207,4 +207,11 @@ nav.in li {
 
 .credit a {
   color: #364e41;
+}
+
+.box {
+   width: 300px;
+    border: 25px solid black;
+    padding: 25px;
+    margin: 25px;
 }
