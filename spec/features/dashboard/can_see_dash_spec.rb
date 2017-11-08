@@ -1,10 +1,11 @@
 
 require 'rails_helper'
 
-xfeature "user" do
-   scenario "can add notes to a connection" do
+feature "User" do
+  scenario "can create a new interaction for a connection" do
 
     user = User.create(username: "Daniel", password: "something")                   #Refactor this setup in to before action
+    create(:relationship)
 
                                                                                     #Also, figure out how to really stub out the
                                                                                     #current user from ApplicationController instance
@@ -15,35 +16,37 @@ xfeature "user" do
     click_on "Login"
 
     expect(current_path).to eq(user_path(user))
-    expect(page).to have_content("Hey, #{user.username}, let's grow your network")
+    expect(page).to have_content("Hey, #{user.username}")
 
 
     connection1 = user.connections.create(name: "brett",
                                  initial_meet: "10/12/12",
-                                 organization: "navy")
+                                 organization: "navy",
+                                 relationship_id: Relationship.last.id)
     connection2 = user.connections.create(name: "bret",
                                  initial_meet: "10/12/12",
-                                 organization: "navy")
+                                 organization: "navy",
+                                 relationship_id: Relationship.last.id)
 
 
-    create(:relationship)
 
     connection1.interactions.create(date: "10/10/10", event: "code demo",
                                      location: "turing",
                                      description: "just some bs")
 
-    connection2.interactions.create(date: "10/10/10", event: "code demo",
+    connection1.interactions.create(date: "10/10/10", event: "free pizza",
                                      location: "turing",
                                      description: "just some bs")
 
-    connection1.notes.create(content: "first_note", date: "10/10/10")
-    connection1.notes.create(content: "somethingsomething", date: "10/10/10")
-    connection1.notes.create(content: "something else", date: "10/10/10")
 
     visit connections_path
     click_on "#{connection1.name}"                                                  #need to dry this up (lines 6-40)
+    expect(page).to have_content("free pizza")
+    visit dashboard_path
+    visit dashboard_analytics_path
+    visit user_path(user)
+    visit new_user_path
 
-    expect(page).to have_content("something else")
-    expect(page).to have_content("first_note")
-   end
+
+  end
 end

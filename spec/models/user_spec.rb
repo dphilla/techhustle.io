@@ -16,4 +16,14 @@ RSpec.describe User, type: :model do
   expect(user.role).to eq("default")
   end
 
+  it "can check from oauth" do
+
+  user = User.create(username: "Penelope", password: "boom")
+
+
+  oauthed_user = User.from_omniauth(user)
+
+  User.sort_by_mutual_connections(User.last)
+
+  end
 end
