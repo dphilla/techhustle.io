@@ -5,7 +5,10 @@
 </header>
 
 <div>
-  <%= @profiles %>
+  <h3>Do you know any of the people? Add them to your network!</h3>
+  <% @profiles.each do |profile| %>
+    <p>  <%= link_to profile.name,  profile.link %> </p>
+  <% end %>
 </div>
 
 <div>
