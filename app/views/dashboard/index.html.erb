@@ -1,16 +1,8 @@
 <h1>Hustle Dashboard</h1>
 
 
-<div>                                                stream.io
-  Activity streaming from contacts
-</div>
-
 <div>
-  Activity Stream from friends
-</div>
-
-<div>
-  Contact suggestions                               internal analytics
+  Contact suggestions, search LinkedIn for related connections that already exist but current_user isnt connected with?
 </div>
 
 <div>
@@ -49,7 +41,9 @@ Your "Network's Health"
     People you may know:
     <% @other_users.each do |user| %>
     <p><%= user.username %>
-      <%= link_to "Request Hustle Synergy", "/" %>
+    <%= link_to "Request Synergy", "/" %>  This needs to create a request to this other user to merge contacts,
+                                                A Req goes to the other user and then, upon approval, contacts are combined
+                                                alert messages for each of these actions
     </p>
      <%#picture%>
   <% end %>

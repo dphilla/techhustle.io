@@ -23,6 +23,9 @@ Rails.application.routes.draw do
   #for calendar
   resources :events
 
+  #for synergy requests
+  resources :synergies, only: [:create, :index]
+
   get "/dashboard", to: "dashboard#index"
   get "/dashboard/analytics", to: "dashboard#show"
 
