@@ -4,6 +4,7 @@ feature "User"do
   it "can see an individual connection" do
 
     user = User.create(username: "Daniel", password: "something")
+    create(:relationship)
 
     visit login_path
     fill_in "session[username]", with: "Daniel"
@@ -11,15 +12,17 @@ feature "User"do
     click_on "Login"
 
     expect(current_path).to eq(user_path(user))
-    expect(page).to have_content("Hey, #{user.username}, let's grow your network")
+    expect(page).to have_content("Hey, #{user.username}")
 
 
   connection = user.connections.create(name: "bret",
                                  initial_meet: "10/12/12",
-                                 organization: "navy")
+                                 organization: "navy",
+                                 relationship_id: Relationship.last.id)
   connection2 = user.connections.create(name: "John",
                                  initial_meet: "10/12/12",
-                                 organization: "navy")
+                                 organization: "navy",
+                                 relationship_id: Relationship.last.id)
 
 
 

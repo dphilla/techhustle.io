@@ -7,12 +7,13 @@ class SessionsController < ApplicationController
 
 
   def create
-    if @user = User.from_omniauth(request.env["omniauth.auth"])
-       session[:user_id] = @user.id
-       redirect_to @user
-    elsif @user.authenticate(params[:session][:password])
+    @user = User.find_by(username: params[:session][:username])
+    if @user.authenticate(params[:session][:password])
       session[:user_id] = @user.id
       redirect_to @user
+    elsif @user = User.from_omniauth(request.env["omniauth.auth"])
+       session[:user_id] = @user.id
+       redirect_to @user
     else
       flash[:notice] = "Invalid Login"
       redirect_to root_path

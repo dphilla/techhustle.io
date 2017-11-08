@@ -11,12 +11,14 @@ RSpec.describe "user" do
     click_on "Login"
 
     expect(current_path).to eq(user_path(user))
-    expect(page).to have_content("Hey, #{user.username}, let's grow your network")
+    expect(page).to have_content("Hey, #{user.username}")
 
 
     connection = user.connections.create(name: "brett",
                                    initial_meet: "10/12/12",
-                                   organization: "navy")
+                                   organization: "navy",
+                                   relationship_id: Relationship.last.id)
+
 
     connection.interactions.create(date: "10/10/10", event: "code demo",
                                      location: "turing",
