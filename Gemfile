@@ -38,6 +38,7 @@ gem 'omniauth-google-oauth2'
 gem 'figaro'
 gem 'highcharts-rails'
 gem "simple_calendar"
+gem "twilio-ruby"
 
 
 # Use Capistrano for deployment
