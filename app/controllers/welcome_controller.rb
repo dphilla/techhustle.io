@@ -1,8 +1,7 @@
 class WelcomeController < ApplicationController
+skip_before_action :verify_authenticity_token
 
   def index
-    @speech = TwilioService.new.get_speech
-    render :xml => @speech
   end
 
 end

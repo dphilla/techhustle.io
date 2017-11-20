@@ -29,4 +29,8 @@ Rails.application.routes.draw do
   get "/dashboard", to: "dashboard#index"
   get "/dashboard/analytics", to: "dashboard#show"
 
+  #for twilio TwiML (see twilio phone number for details--using ngrok for local development)
+  post "/inbound", to: 'twilio#index'
+  get "/inbound", to: 'twilio#index'
+
 end
